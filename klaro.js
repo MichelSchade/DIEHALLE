@@ -13,7 +13,7 @@ var klaroConfig = {
     de: {
       consentModal: {
         title: 'Cookies',
-        description: 'Wenn du keine Cookies aktivierst, sammeln wir auch keine Daten über dich. Privatspähre steht bei uns an erster Stelle.',
+        description: 'Wenn du keine Cookies aktivierst, sammeln wir auch keine Daten über dich. Datenschutz steht bei uns an erster Stelle.',
       },
       memberstack: {
         description: 'Mitgliederdaten',
