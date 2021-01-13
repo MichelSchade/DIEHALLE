@@ -3,7 +3,9 @@ $(document).ready(function() {
   /******Step 1 *******************/
   $('#info-step').click(function(e) {
     $('.w-round div:nth-child(2)').trigger('tap');
-	  $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 2 *******************/
   $('#choose-input').keypress(function(event) {
@@ -13,12 +15,16 @@ $(document).ready(function() {
   });
   $('#choose-step').click(function(e) {
     $('.w-round div:nth-child(3)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   $('#choose-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(1)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 3 *******************/
   $('#name-input').keypress(function(event) {
@@ -31,7 +37,9 @@ $(document).ready(function() {
     if ($('#name-input').val().length != 0) {
       $('#name-alert').hide();
       $('.w-round div:nth-child(4)').trigger('tap');
-      $("html, body").animate({ scrollTop: "0" });
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     } else {
       $('#name-alert').show(500);
     }
@@ -39,7 +47,9 @@ $(document).ready(function() {
   $('#name-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(2)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 4 *******************/
   $('#email-input').keypress(function(event) {
@@ -67,13 +77,17 @@ $(document).ready(function() {
     } else {
       $('#email-alert').hide();
       $('.w-round div:nth-child(5)').trigger('tap');
-      $("html, body").animate({ scrollTop: "0" });
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#email-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(3)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 5 *******************/
   $('#tel-input').keypress(function(event) {
@@ -86,7 +100,9 @@ $(document).ready(function() {
     if ($('#tel-input').val().length != 0) {
       $('#tel-alert').hide();
       $('.w-round div:nth-child(6)').trigger('tap');
-      $("html, body").animate({ scrollTop: "0" });
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     } else {
       $('#tel-alert').show(500);
     }
@@ -94,7 +110,9 @@ $(document).ready(function() {
   $('#tel-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(4)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 6 *******************/
   $("#sex-input").keypress(function(event) {
@@ -109,13 +127,17 @@ $(document).ready(function() {
     } else {
       $('#sex-alert').hide();
       $('.w-round div:nth-child(7)').trigger('tap');
-      $("html, body").animate({ scrollTop: "0" });
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#sex-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(5)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 7 *******************/
   $("#bday-input").keypress(function(event) {
@@ -130,13 +152,17 @@ $(document).ready(function() {
     } else {
       $('#bday-alert').hide();
       $('.w-round div:nth-child(8)').trigger('tap');
-      $("html, body").animate({ scrollTop: "0" });
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#bday-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(6)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 8 *******************/
   $("#street-input, #plz-input, #ort-input").keypress(function(event) {
@@ -155,13 +181,17 @@ $(document).ready(function() {
     } else {
       $('#ort-alert, #plz-alert, #street-alert').hide();
       $('.w-round div:nth-child(9)').trigger('tap');
-      $("html, body").animate({ scrollTop: "0" });
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#address-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(7)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 9 *******************/
   $("#signaturehash").keypress(function(event) {
@@ -176,13 +206,17 @@ $(document).ready(function() {
     } else {
       $('#sign-alert').hide();
       $('.w-round div:nth-child(10)').trigger('tap');
-      $("html, body").animate({ scrollTop: "0" });
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#sign-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(8)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   /******Step 10 *******************/
   $("#datenschutz").keypress(function(event) {
@@ -211,25 +245,8 @@ $(document).ready(function() {
   $('#datenschutz-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(9)').trigger('tap');
-    $("html, body").animate({ scrollTop: "0" });
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
-  /******Step 6 (FINAL) *******************/
-  /*    
-      $('#last-prev').click(function(e) {
-  			e.preventDefault();
-            $('.w-round div:nth-child(4)').trigger('tap');
-  		});
-  */
-  /*$('#submit-step').click(function(e) {
-			e.preventDefault();
-      
-      if($('#details-input').val().length !=0){
-        $('#details-alert').hide();
-       }
-       
-      else
-        {
-          $('#details-alert').show();
-        }
-		});*/
 });
