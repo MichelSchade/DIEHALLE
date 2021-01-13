@@ -11,9 +11,11 @@ var klaroConfig = {
   lang: 'de',
   translations: {
     de: {
+      sessionid: {
+        title : 'Cookies',
+      },
       consentModal: {
-        description:
-                    'Hier kannst du einsehen und anpassen, welche Information wir über dich sammeln.',
+        description: 'Hier kannst du einsehen und anpassen, welche Information wir über dich sammeln.',
       },
       memberstack: {
         description: 'Mitgliederdaten',
