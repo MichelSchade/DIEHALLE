@@ -11,10 +11,16 @@ $(document).ready(function() {
   });
   $('#choose-step').click(function(e) {
     $('.w-round div:nth-child(3)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   $('#choose-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(1)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 3
   $('#name-input').keypress(function(event) {
@@ -27,6 +33,9 @@ $(document).ready(function() {
     if ($('#name-input').val().length != 0) {
       $('#name-alert').hide();
       $('.w-round div:nth-child(4)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     } else {
       $('#name-alert').show(500);
     }
@@ -34,6 +43,9 @@ $(document).ready(function() {
   $('#name-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(2)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 4
   $('#red-input').keypress(function(event) {
@@ -48,17 +60,29 @@ $(document).ready(function() {
     } else if (jQuery('#red-input').val() == "Mitgliedschaftsänderung") {
       $('#red-alert').hide();
       $('.w-round div:nth-child(5)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     } else if (jQuery('#red-input').val() == "SEPA Änderung") {
       $('#red-alert').hide();
       $('.w-round div:nth-child(7)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     } else if (jQuery('#red-input').val() == "Beides") {
       $('#red-alert').hide();
       $('.w-round div:nth-child(5)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#red-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(3)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 5
   $('#ma-input').keypress(function(event) {
@@ -74,17 +98,29 @@ $(document).ready(function() {
       $('#ma-alert').hide();
       if (jQuery('#red-input').val() == "Mitgliedschaftsänderung") {
         $('.w-round div:nth-child(11)').trigger('tap');
+        $("html, body").animate({
+          scrollTop: "0"
+        });
       } else {
         $('.w-round div:nth-child(7)').trigger('tap');
+        $("html, body").animate({
+          scrollTop: "0"
+        });
       }
     } else if (jQuery('#auswahlmitgliedschaft').val() == "Kursmitgliedschaft") {
       $('#ma-alert').hide();
       $('.w-round div:nth-child(6)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#ma-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(4)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 6
   $('#kurs-input').keypress(function(event) {
@@ -126,6 +162,9 @@ $(document).ready(function() {
     } else {
       $('#kurs-alert').hide(500);
       $('.w-round div:nth-child(7)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
       $('#kurs1-alert, #kurs2-alert, #kurs3-alert').fadeToggle("slow", "linear");
       $('#tag1-alert, #tag2-alert, #tag3-alert').fadeToggle("slow", "linear");
       $('#zkurs1-alert, #zkurs2-alert, #zkurs3-alert').fadeToggle("slow", "linear");
@@ -134,6 +173,9 @@ $(document).ready(function() {
   $('#kurs-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(5)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 7
   $("#street-input, #plz-input, #ort-input").keypress(function(event) {
@@ -152,13 +194,22 @@ $(document).ready(function() {
     } else {
       $('#ort-alert, #plz-alert, #street-alert').hide();
       $('.w-round div:nth-child(8)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#address-prev').click(function(e) {
     if (jQuery('#auswahlmitgliedschaft').val() == "Kursmitgliedschaft") {
       $('.w-round div:nth-child(6)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     } else {
       $('.w-round div:nth-child(5)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   // Step 8
@@ -174,11 +225,17 @@ $(document).ready(function() {
     } else {
       $('#email-alert').hide();
       $('.w-round div:nth-child(9)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#email-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(7)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 9
   $("#tel-input").keypress(function(event) {
@@ -193,11 +250,17 @@ $(document).ready(function() {
     } else {
       $('#tel-alert').hide();
       $('.w-round div:nth-child(10)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#tel-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(8)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 10
   $("#iban-input, #bic-input").keypress(function(event) {
@@ -218,11 +281,17 @@ $(document).ready(function() {
       $('#bic-alert').hide();
       $('#namesign-alert').hide();
       $('.w-round div:nth-child(11)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#konto-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(9)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
   // Step 11
   $("#signaturehash").keypress(function(event) {
@@ -237,14 +306,23 @@ $(document).ready(function() {
     } else {
       $('#sign-alert').hide();
       $('.w-round div:nth-child(12)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   $('#sign-prev').click(function(e) {
     e.preventDefault();
     if (jQuery('#red-input').val() == "Mitgliedschaftsänderung") {
       $('.w-round div:nth-child(5)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     } else {
       $('.w-round div:nth-child(10)').trigger('tap');
+      $("html, body").animate({
+        scrollTop: "0"
+      });
     }
   });
   // Step 12
@@ -272,5 +350,8 @@ $(document).ready(function() {
   $('#datenschutz-prev').click(function(e) {
     e.preventDefault();
     $('.w-round div:nth-child(11)').trigger('tap');
+    $("html, body").animate({
+      scrollTop: "0"
+    });
   });
 });
