@@ -1,4 +1,7 @@
 function on_planyo_form_loaded(event) {
+  if (event == 'reservation_failure') {
+    jQuery('#price_info_div_sticky, #res_form_buttons').show();
+  }
   jQuery('#price_info_div_sticky').css('background-color', '#26A86F');
   jQuery('#price_info_div_sticky, #res_form_buttons').hide();
   jQuery('#rental_prop_children').change(function() {
