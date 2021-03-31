@@ -45,7 +45,8 @@ function on_planyo_form_loaded(event) {
       var future = new Date().getTime() + (59 * 24 * 60 * 60 * 1000);
       var timestamp = date.getTime();
       var ende = moment(dateTimeParts[1], 'LT').add(2, 'hour').format('LT');
-      jQuery("#workshoptext" + i).text("Sonntag, " + jQuery('#event_date option').eq(i).text() + "bis " + ende);
+      var tag = moment(date).format('dddd');
+      jQuery("#workshoptext" + i).text(tag + ", " + jQuery('#event_date option').eq(i).text() + "bis " + ende);
       if (timestamp > future) {
         jQuery("#workshopdiv" + i).hide();
       } else if (timestamp < future) {
