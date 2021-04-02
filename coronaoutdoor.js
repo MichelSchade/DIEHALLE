@@ -138,8 +138,7 @@ function on_planyo_form_loaded(event) {
         'productPrice': jQuery('#preis').getValue().split(" ")[0]
       }
     });
-  }
-  if (event == 'reservation_failure') {
+  } else if (event == 'reservation_failure') {
     jQuery('#price_info_div_sticky, #res_form_buttons').css('display','block !important');
   }
 }
