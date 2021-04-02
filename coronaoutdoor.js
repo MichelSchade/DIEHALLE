@@ -1,11 +1,7 @@
 function on_planyo_form_loaded(event) {
   jQuery('#price_info_div_sticky').css('background-color', '#e5ac4c');
   // On Event Load
-  if (jQuery(".bg-danger .lead").is(':visible')) {
-    jQuery('#price_info_div_sticky, #res_form_buttons').css('display','block !important');
-  } else {
   jQuery('#price_info_div_sticky, #res_form_buttons').hide();
-  }
   jQuery('#rental_prop_children, #rental_prop_adults').change(function() {
     if (jQuery('#rental_prop_children option:selected').val() == "none" && jQuery('#rental_prop_adults option:selected').val() == "none") {
       jQuery('#rental_prop_Teilnehmerdaten_1').addClass('hidefromcustomer');
@@ -149,7 +145,7 @@ function on_planyo_form_loaded(event) {
   }
   // Failure
   if (event == 'reservation_failure') {
-    jQuery('#price_info_div_sticky, #res_form_buttons').css('display','block !important');
+    jQuery('#price_info_div_sticky, #res_form_buttons, #multipage_prev').show();
   }
 }
 jQuery(document).ready(function() {
