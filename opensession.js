@@ -163,14 +163,14 @@ function on_planyo_form_loaded(event) {
     }
   }
   
-  if (event == 'reservation_details' || event == 'payment_form' || event == 'reservation_done' ||  event == 'checkout') {
+  if (event == 'reservation_details' || event == 'payment_form' || event == 'reservation_done') {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
     jQuery('.reservation_step_1, .reservation_step_2, .reservation_step_3').addClass('completed');
     jQuery('.completed .reservation_step_img_text').html('<img src="https://uploads-ssl.webflow.com/5e5bcb9d0e170635e182079a/5e9ff8e6f9a5b1d89d40f5cb_check-solid.svg" width=50% />');
   }
   
   if (event == 'reservation_failure') {
-    jQuery('#price_info_div_sticky, #res_form_buttons').css('display','block !important');
+    jQuery('#price_info_div_sticky, #res_form_buttons, #multipage_prev').show();
   }
 }
 jQuery(document).ready(function() {
