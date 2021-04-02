@@ -124,11 +124,15 @@ function on_planyo_form_loaded(event) {
     } else if (jQuery('#rental_prop_children option:selected').val() > 0) {
       jQuery('#rental_prop_Teilnehmerdaten_1').removeClass('hidefromcustomer');
     }
-  } else if (event == 'reservation_details' || event == 'payment_form' || event == 'reservation_done') {
+  }
+  // Details / Payment Form / Done
+  if (event == 'reservation_details' || event == 'payment_form' || event == 'reservation_done') {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
     jQuery('.reservation_step_1, .reservation_step_2, .reservation_step_3').addClass('completed');
     jQuery('.completed .reservation_step_img_text').html('<img src="https://uploads-ssl.webflow.com/5e5bcb9d0e170635e182079a/5e9ff8e6f9a5b1d89d40f5cb_check-solid.svg" width=50% />');
-  } else if (event == 'payment_confirmation') {
+  }
+  // Only Payment Confirm GTM
+  if (event == 'payment_confirmation') {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       'event': 'gtm_conversion',
@@ -138,7 +142,9 @@ function on_planyo_form_loaded(event) {
         'productPrice': jQuery('#preis').getValue().split(" ")[0]
       }
     });
-  } else if (event == 'reservation_failure') {
+  }
+  // Failure
+  if (event == 'reservation_failure') {
     jQuery('#price_info_div_sticky, #res_form_buttons').css('display','block !important');
   }
 }
