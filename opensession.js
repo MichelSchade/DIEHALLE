@@ -49,6 +49,19 @@ function on_planyo_form_loaded(event) {
       jQuery('#rental_prop_Teilnehmerdaten_1').removeClass('hidefromcustomer');
     }
   });
+  
+  if (event == 'reservation_done') {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'gtm_conversion',
+      'conversionInfo': {
+        'productName': jQuery('#rs').text(),
+        'productId': jQuery('#pid').text(),
+        'productPrice': jQuery('#preis').text().split(" ")[0]
+      }
+    });
+  }
+  
   if (event == 'payment_form' || event == 'reservation_details' || event == 'payment_confirmation') {
     jQuery('.booking').css({
       'width': '100%',
