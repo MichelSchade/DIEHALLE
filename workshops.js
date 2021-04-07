@@ -54,7 +54,7 @@ function on_planyo_form_loaded(event) {
       } else {
         jQuery("#workshopdiv" + i).show();
       }
-      if (jQuery("#workshopdiv" + i + " > td:nth-child(2)").html() == 0) {
+      if (jQuery("#termin" + i + ").html() == 0) {
         jQuery("#workshop" + i).prop('disabled', true);
         jQuery("#workshop" + i).val('ausgebucht');
         jQuery("#workshop" + i).addClass('ausgebucht');
