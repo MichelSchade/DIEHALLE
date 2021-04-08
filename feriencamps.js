@@ -27,13 +27,6 @@ function on_planyo_form_loaded(event) {
       jQuery('#reqfinfo').removeClass('hidefromcustomer');
     }
     // Verfügbare Plätze
-    jQuery('#erstertermin').html(jQuery('.places').html().split(" ")[0]);
-    jQuery('#zweitertermin').html(jQuery('.places').html().split(" ")[1]);
-    jQuery('#drittertermin').html(jQuery('.places').html().split(" ")[2]);
-    jQuery('#viertertermin').html(jQuery('.places').html().split(" ")[3]);
-    jQuery('#fuenftertermin').html(jQuery('.places').html().split(" ")[4]);
-    jQuery('#sechstertermin').html(jQuery('.places').html().split(" ")[5]);
-    jQuery('#siebtertermin').html(jQuery('.places').html().split(" ")[6]);
     var length = jQuery('#event_date > option').length;
     for (var i = 0; i < length; i++) {
       var dateString = jQuery("#event_date")[0].options[i].value;
@@ -53,16 +46,7 @@ function on_planyo_form_loaded(event) {
         } else {
           jQuery("#workshoptext" + i).html(moment(date).format('L') + " bis " + enddate + "<br />" + dateTimeParts[1] + " bis " + ende)
         }
-        /*      
-        if (timestamp > future) {
-          jQuery("#feriencampzeile" + i).hide();
-        } else if (timestamp < future) {
-          jQuery("#feriencampzeile" + i).show();
-        } else {
-          jQuery("#feriencampzeile" + i).show();
-        }
-        */
-        if (jQuery("#feriencampzeile" + i + " > td:nth-child(2)").html() == 0) {
+        if (jQuery("#termin" + i).html() == 0) {
           jQuery("#workshop" + i).prop('disabled', true);
           jQuery("#workshop" + i).val('ausgebucht');
           jQuery("#workshop" + i).addClass('ausgebucht');
