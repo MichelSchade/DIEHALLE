@@ -1,5 +1,5 @@
 function on_planyo_form_loaded(event) {
-  jQuery('#price_info_div_sticky').css('background-color', '#e5ac4c');
+  jQuery('#price_info_div_sticky').css('background-color', '#26A86F');
   // On Event Load
   jQuery('#price_info_div_sticky, #res_form_buttons').hide();
   jQuery('#rental_prop_children, #rental_prop_adults').change(function() {
@@ -29,44 +29,51 @@ function on_planyo_form_loaded(event) {
     }
     // Verfügbare Plätze
     var length = jQuery('#event_date > option').length;
-    for (var i = 1; i < length; i++) {
-      var dateString = document.getElementById("event_date").options[i].text;
-      var dateTimeParts = dateString.split(" ");
-      var timeParts = dateTimeParts[1].split(":");
-      var dateParts = dateTimeParts[0].split(".");
-      var date = new Date(dateParts[2], parseInt(dateParts[1], 10) - 1, dateParts[0]);
-      var future = new Date().getTime() + (59 * 24 * 60 * 60 * 1000);
-      var timestamp = date.getTime();
-      var ende = moment(dateTimeParts[1], 'LT').add(2, 'hour').format('LT');
-      var tag = moment(date).format('dddd');
-      jQuery("#workshoptext" + i).text(tag + ", " + jQuery('#event_date option').eq(i).text() + "bis " + ende);
-      if (timestamp > future) {
-        jQuery("#workshopdiv" + i).hide();
-      } else if (timestamp < future) {
-        jQuery("#workshopdiv" + i).show();
-      } else {
-        jQuery("#workshopdiv" + i).show();
-      }
-      if (jQuery("#workshopdiv" + i + " > td:nth-child(2)").html() == 0) {
-        jQuery("#workshop" + i).prop('disabled', true);
-        jQuery("#workshop" + i).val('ausgebucht');
-        jQuery("#workshop" + i).addClass('ausgebucht');
-        jQuery("#workshop" + i).css('cursor', 'default');
-      }
-    }
-    for (var i = 1; i < 8; i++) {
-      if (jQuery('#workshoptext' + i).text().indexOf('.') == -1) {
-        jQuery('#workshopdiv' + i).hide();
-      }
-    }
-    jQuery("#workshop1, #workshop2, #workshop3, #workshop4, #workshop5, #workshop6, #workshop7").click(function() {
-      var sel = jQuery(this).attr('id').split("p")[1];
-      for (var i = 1; i < 8; i++) {
-        if (jQuery("#workshop" + i).hasClass("ausgebucht")) {} else {
-          jQuery("#workshop" + i).val('Auswählen');
-          jQuery("#workshop" + i).prop("disabled", false);
+    for (var i = 0; i < length; i++) {
+      var dateString = jQuery("#event_date")[0].options[i].value;
+      if (dateString == "none") {} else {
+        var dateTimeParts = dateString.split(" ");
+        var timeParts = dateTimeParts[1].split(":");
+        var dateParts = dateTimeParts[0].split("-");
+        var date = new Date(dateParts[0], parseInt(dateParts[1], 10) - 1, dateParts[2]);
+        var future = new Date().getTime() + (59 * 24 * 60 * 60 * 1000);
+        var timestamp = date.getTime();
+        var ende = moment(dateTimeParts[1], 'LT').add(2, 'hour').format('LT');
+        var tag = moment(date).format('dddd');
+        if (i == 0) {
+          jQuery("#workshoptext" + 1).html(tag + ", " + jQuery('#event_date option').eq(i).text() + "bis " + ende)
+        } else {
+          jQuery("#workshoptext" + i).html(tag + ", " + jQuery('#event_date option').eq(i).text() + "bis " + ende)
         }
-        jQuery("#workshop" + i).removeClass('selected');
+        if (timestamp > future) {
+          jQuery("#workshopdiv" + i).hide();
+        } else if (timestamp < future) {
+          jQuery("#workshopdiv" + i).show();
+        } else {
+          jQuery("#workshopdiv" + i).show();
+        }
+        if (jQuery("#termin" + i).html() == 0) {
+          jQuery("#workshopbooking" + i).prop('disabled', true);
+          jQuery("#workshopbooking" + i).val('ausgebucht');
+          jQuery("#workshopbooking" + i).addClass('ausgebucht');
+          jQuery("#workshopbooking" + i).css('cursor', 'default');
+        }
+      }
+    }
+    console.log(jQuery(".termindivs > div").length);
+    for (var i = 1; i <= jQuery(".termindivs > div").length; i++) {
+      if (jQuery('#workshoptext' + i).text().indexOf('.') == -1) {
+        jQuery('#workshopdiv' + i).parent().hide();
+      }
+    }
+    jQuery("[id*='workshopbooking']").click(function() {
+      var sel = jQuery(this).attr('id').split("g")[1];
+      for (var i = 1; i < length; i++) {
+        if (jQuery("#workshopbooking" + i).hasClass("ausgebucht")) {} else {
+          jQuery("#workshopbooking" + i).val('Auswählen');
+          jQuery("#workshopbooking" + i).prop("disabled", false);
+        }
+        jQuery("#workshopbooking" + i).removeClass('selected');
       }
       jQuery(this).addClass('selected');
       jQuery(this).prop("disabled", true);
@@ -118,13 +125,13 @@ function on_planyo_form_loaded(event) {
       jQuery('#rental_prop_Teilnehmerdaten_1').removeClass('hidefromcustomer');
     }
   }
-  // Details / Payment Form / Done
+  
   if (event == 'reservation_details' || event == 'payment_form' || event == 'reservation_done') {
     document.body.scrollTop = document.documentElement.scrollTop = 0;
     jQuery('.reservation_step_1, .reservation_step_2, .reservation_step_3').addClass('completed');
     jQuery('.completed .reservation_step_img_text').html('<img src="https://uploads-ssl.webflow.com/5e5bcb9d0e170635e182079a/5e9ff8e6f9a5b1d89d40f5cb_check-solid.svg" width=50% />');
   }
-  // Only Payment Confirm GTM
+  
   if (event == 'payment_confirmation') {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -136,7 +143,7 @@ function on_planyo_form_loaded(event) {
       }
     });
   }
-  // Failure
+  
   if (event == 'reservation_failure') {
     jQuery('#price_info_div_sticky, #res_form_buttons, #multipage_prev').show();
   }
