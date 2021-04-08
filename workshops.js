@@ -53,26 +53,27 @@ function on_planyo_form_loaded(event) {
           jQuery("#workshopdiv" + i).show();
         }
         if (jQuery("#termin" + i).html() == 0) {
-          jQuery("#workshop" + i).prop('disabled', true);
-          jQuery("#workshop" + i).val('ausgebucht');
-          jQuery("#workshop" + i).addClass('ausgebucht');
-          jQuery("#workshop" + i).css('cursor', 'default');
+          jQuery("#workshopbooking" + i).prop('disabled', true);
+          jQuery("#workshopbooking" + i).val('ausgebucht');
+          jQuery("#workshopbooking" + i).addClass('ausgebucht');
+          jQuery("#workshopbooking" + i).css('cursor', 'default');
         }
       }
     }
-    for (var i = 1; i < 8; i++) {
+    console.log(jQuery(".termindivs > div").length);
+    for (var i = 1; i <= jQuery(".termindivs > div").length; i++) {
       if (jQuery('#workshoptext' + i).text().indexOf('.') == -1) {
-        jQuery('#workshopdiv' + i).hide();
+        jQuery('#workshopdiv' + i).parent().hide();
       }
     }
-    jQuery("#workshop1, #workshop2, #workshop3, #workshop4, #workshop5, #workshop6, #workshop7").click(function() {
-      var sel = jQuery(this).attr('id').split("p")[1];
-      for (var i = 1; i < 8; i++) {
-        if (jQuery("#workshop" + i).hasClass("ausgebucht")) {} else {
-          jQuery("#workshop" + i).val('Auswählen');
-          jQuery("#workshop" + i).prop("disabled", false);
+    jQuery("[id*='workshopbooking']").click(function() {
+      var sel = jQuery(this).attr('id').split("g")[1];
+      for (var i = 1; i < length; i++) {
+        if (jQuery("#workshopbooking" + i).hasClass("ausgebucht")) {} else {
+          jQuery("#workshopbooking" + i).val('Auswählen');
+          jQuery("#workshopbooking" + i).prop("disabled", false);
         }
-        jQuery("#workshop" + i).removeClass('selected');
+        jQuery("#workshopbooking" + i).removeClass('selected');
       }
       jQuery(this).addClass('selected');
       jQuery(this).prop("disabled", true);
