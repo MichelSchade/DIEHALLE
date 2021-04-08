@@ -28,13 +28,6 @@ function on_planyo_form_loaded(event) {
       jQuery('#reqfinfo').removeClass('hidefromcustomer');
     }
     // Verfügbare Plätze
-    jQuery('#erstertermin').html(jQuery('.places').html().split(" ")[0]);
-    jQuery('#zweitertermin').html(jQuery('.places').html().split(" ")[1]);
-    jQuery('#drittertermin').html(jQuery('.places').html().split(" ")[2]);
-    jQuery('#viertertermin').html(jQuery('.places').html().split(" ")[3]);
-    jQuery('#fuenftertermin').html(jQuery('.places').html().split(" ")[4]);
-    jQuery('#sechstertermin').html(jQuery('.places').html().split(" ")[5]);
-    jQuery('#siebtertermin').html(jQuery('.places').html().split(" ")[6]);
     var length = jQuery('#event_date > option').length;
     for (var i = 1; i < length; i++) {
       var dateString = document.getElementById("event_date").options[i].text;
