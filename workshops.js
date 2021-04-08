@@ -28,37 +28,36 @@ function on_planyo_form_loaded(event) {
       jQuery('#reqfinfo').removeClass('hidefromcustomer');
     }
     // Verfügbare Plätze
-    jQuery('#erstertermin').html(jQuery('.places').html().split(" ")[0]);
-    jQuery('#zweitertermin').html(jQuery('.places').html().split(" ")[1]);
-    jQuery('#drittertermin').html(jQuery('.places').html().split(" ")[2]);
-    jQuery('#viertertermin').html(jQuery('.places').html().split(" ")[3]);
-    jQuery('#fuenftertermin').html(jQuery('.places').html().split(" ")[4]);
-    jQuery('#sechstertermin').html(jQuery('.places').html().split(" ")[5]);
-    jQuery('#siebtertermin').html(jQuery('.places').html().split(" ")[6]);
     var length = jQuery('#event_date > option').length;
-    for (var i = 1; i < length; i++) {
-      var dateString = document.getElementById("event_date").options[i].text;
-      var dateTimeParts = dateString.split(" ");
-      var timeParts = dateTimeParts[1].split(":");
-      var dateParts = dateTimeParts[0].split(".");
-      var date = new Date(dateParts[2], parseInt(dateParts[1], 10) - 1, dateParts[0]);
-      var future = new Date().getTime() + (59 * 24 * 60 * 60 * 1000);
-      var timestamp = date.getTime();
-      var ende = moment(dateTimeParts[1], 'LT').add(2, 'hour').format('LT');
-      var tag = moment(date).format('dddd');
-      jQuery("#workshoptext" + i).text(tag + ", " + jQuery('#event_date option').eq(i).text() + "bis " + ende);
-      if (timestamp > future) {
-        jQuery("#workshopdiv" + i).hide();
-      } else if (timestamp < future) {
-        jQuery("#workshopdiv" + i).show();
-      } else {
-        jQuery("#workshopdiv" + i).show();
-      }
-      if (jQuery("#termin" + i).html() == 0) {
-        jQuery("#workshop" + i).prop('disabled', true);
-        jQuery("#workshop" + i).val('ausgebucht');
-        jQuery("#workshop" + i).addClass('ausgebucht');
-        jQuery("#workshop" + i).css('cursor', 'default');
+    for (var i = 0; i < length; i++) {
+      var dateString = jQuery("#event_date")[0].options[i].value;
+      if (dateString == "none") {} else {
+        var dateTimeParts = dateString.split(" ");
+        var timeParts = dateTimeParts[1].split(":");
+        var dateParts = dateTimeParts[0].split("-");
+        var date = new Date(dateParts[0], parseInt(dateParts[1], 10) - 1, dateParts[2]);
+        var future = new Date().getTime() + (59 * 24 * 60 * 60 * 1000);
+        var timestamp = date.getTime();
+        var ende = moment(dateTimeParts[1], 'LT').add(2, 'hour').format('LT');
+        var tag = moment(date).format('dddd');
+        if (i == 0) {
+          jQuery("#workshoptext" + 1).html(tag + ", " + jQuery('#event_date option').eq(i).text() + "bis " + ende)
+        } else {
+          jQuery("#workshoptext" + i).html(tag + ", " + jQuery('#event_date option').eq(i).text() + "bis " + ende)
+        }
+        if (timestamp > future) {
+          jQuery("#workshopdiv" + i).hide();
+        } else if (timestamp < future) {
+          jQuery("#workshopdiv" + i).show();
+        } else {
+          jQuery("#workshopdiv" + i).show();
+        }
+        if (jQuery("#termin" + i).html() == 0) {
+          jQuery("#workshop" + i).prop('disabled', true);
+          jQuery("#workshop" + i).val('ausgebucht');
+          jQuery("#workshop" + i).addClass('ausgebucht');
+          jQuery("#workshop" + i).css('cursor', 'default');
+        }
       }
     }
     for (var i = 1; i < 8; i++) {
