@@ -5,6 +5,12 @@ jQuery('#multipage_next').keypress(function(event) {
 });
 
 function on_planyo_form_loaded(event) {
+  if (window.location.href.indexOf("planyo") > -1) {
+    jQuery('#price_info_div_sticky, #res_form_buttons').show();
+  } else {
+    jQuery('#price_info_div_sticky, #res_form_buttons').hide();
+  }
+  
   jQuery('#price_info_div_sticky').css('background-color', '#26a86f');
   jQuery('.reservation_steps').hide();
   /*
