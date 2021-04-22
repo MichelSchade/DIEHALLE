@@ -71,6 +71,8 @@ function on_planyo_form_loaded(event) {
       });
     }
     jQuery('#row_event_date').parent().addClass('hidefromcustomer');
+    jQuery('#row_one_date').addClass('hidefromcustomer');
+    jQuery('#row_start_time').parent().addClass('hidefromcustomer');
     jQuery('#multipage_next').css("display", "none !important")
     if (jQuery("#step_reservation_details").hasClass('reservation_step_current')) {
       jQuery('.workshopdiv').show();
