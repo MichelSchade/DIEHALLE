@@ -384,3 +384,6 @@
 .klaro .cm-btn-accept-all {
   background-image: url("https://uploads-ssl.webflow.com/5e5bcb9d0e170635e182079a/5e8e09335d4b890919954390_runmandy_l.png") !important;
 }
+.klaro .cookie-modal .cm-list-label .slider::before, .klaro .context-notice .cm-list-label .slider::before, .klaro .cookie-notice .cm-list-label .slider::before {
+    background-color: #333 !important;
+}
