@@ -15,16 +15,7 @@ var klaroConfig = {
         title: 'Cookies',
         description: 'Wenn du keine Cookies aktivierst, sammeln wir auch keine Daten über dich. Datenschutz steht bei uns an erster Stelle.',
       },
-      memberstack: {
-        description: 'Mitgliederdaten',
-      },
       ganalytics: {
-        description: 'Echtzeit-Benutzeranalyse',
-      },
-      tagmanager: {
-        description: 'Echtzeit-Benutzeranalyse',
-      },
-      hotjar: {
         description: 'Echtzeit-Benutzeranalyse',
       },
       fpixel: {
@@ -38,21 +29,6 @@ var klaroConfig = {
     },   
   },
   apps: [
-    {
-      name: 'hotjar',
-      default: false,
-      title: 'Hotjar',
-      purposes: ['analytics'],
-      cookies: ['external-tracker'],
-      callback: function(consent, app) {
-        console.log(
-          'User consent for app ' + app.name + ': consent=' + consent
-        );
-      },
-      required: false,
-      optOut: false,
-      onlyOnce: true,
-    },
     {
       name: 'ganalytics',
       title: 'Google Analytics',
@@ -84,33 +60,6 @@ var klaroConfig = {
         );
       },
       optOut: false,
-    },
-    {
-      name: 'memberstack',
-      title: 'Memberstack',
-      purposes: ['security'],
-      cookies: ['external-tracker'],
-      callback: function(consent, app) {
-        console.log(
-          'User consent for app ' + app.name + ': consent=' + consent
-        );
-      },
-      optOut: false,
-    },
-    {
-      name: 'tagmanager',
-      title: 'Google Tag Manager',
-      purposes: ['analytics'],
-      cookies: ['external-tracker'],
-      callback: function(consent, app) {
-        if (consent !== false) {
-          dataLayer.push({'event' : 'loadgtm-analytics'});
-        }
-        console.log(
-          'User consent for app ' + app.name + ': consent=' + consent
-        );
-      },
-      optOut: false,
-    },
+    }
   ],
 };
